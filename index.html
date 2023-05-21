@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="Rotation.js"></script>
+</head>
+
+<body>
+    <a-scene background="color: #87CEEB">
+
+        <!--Asset Management-->
+        <a-assets timeout="10000">
+            <a-asset-item id="terrainMap" src="./assets/terrain/scene.gltf"></a-asset-item>
+
+            <a-asset-item id="sub" src="./assets/scene.glTF"></a-asset-item>
+        </a-assets>
+
+        <a-entity id="sub" gltf-model="#sub" position="0 0 0" scale="0.22 0.22 0.22" rotation="0 90 0"
+            animation="property: position; to: 0 0 -1000; easing:linear; loop: true; dur: 150000" boat-rotation-reader>
+            <a-entity id="look" camera position="-36 16.5 0" rotation="0 -90 0"></a-entity>
+        </a-entity>
+
+        <a-entity id="terrain" position="0 0 0" terrain-rotation-reader>
+            <a-box position="0 -3.5 0" scale="750 6 650" color="#005493"></a-box>
+            <a-box position="375 -6 0" scale="10 200 600" color="grey"></a-box>
+            <a-box position="-375 -6 0" scale="10 200 600" color="grey"></a-box>
+            <a-box position="0 -6 325" scale="700 200 10" color="grey"></a-box>
+            <a-box position="0 -6 -325" scale="700 200 10" color="grey"></a-box>
+        </a-entity>
+
+    </a-scene>
+</body>
+
+</html>
