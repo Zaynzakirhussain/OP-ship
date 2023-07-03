@@ -7,12 +7,12 @@ AFRAME.registerComponent("terrain-rotation-reader", {
       window.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight") {
           if (this.data.speedOfRotation < 0.1) {
-            this.data.speedOfRotation += 0.005;
+            this.data.speedOfRotation += 0.001;
           }
         }
         if (e.key === "ArrowLeft") {
           if (this.data.speedOfRotation > -0.1) {
-            this.data.speedOfRotation -= 0.005;
+            this.data.speedOfRotation -= 0.001;
           }
         }
       });
