@@ -7,9 +7,9 @@ AFRAME.registerComponent("target-ring", {
         var id = `ring${i}`;
   
         //position variables     
-        var posX = (Math.random() * 700 + (-400));
-        var posY = (Math.random() * 6);
-        var posZ = (Math.random() * -850 + 0);
+        var posX = (Math.random() * 400 + (-200));
+        var posY = (4);
+        var posZ = (Math.random() * -950 + 0);
   
         var position = { x: posX, y: posY, z: posZ };
   
@@ -30,11 +30,18 @@ AFRAME.registerComponent("target-ring", {
       ringEl.setAttribute("material", "color", "#ff9100");
   
       ringEl.setAttribute("geometry", { primitive: "torus", radius: 6 });
-  
+
+      ringEl.setAttribute("animation", {
+        property: "rotation",
+        to: "0 360 0",
+        loop: "true",
+        dur: 9000,
+      });
+
       //set the static body attribute of the physics system
       ringEl.setAttribute("static-body", {
         shape: "sphere",
-        sphereRadius: 2
+        sphereRadius: 5
       })
   
       ringEl.setAttribute("game-play", {

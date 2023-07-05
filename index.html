@@ -26,11 +26,11 @@
 
         <a-entity id="sub" gltf-model="#sub" position="0 0 0" scale="0.22 0.22 0.22" rotation="0 90 0"
             animation="property: position; to: 0 0 -1000; easing:linear; loop: true; dur: 70000" boat-rotation-reader
-            dynamic-body="mass: 0" game-play>
+            dynamic-body="mass: 0">
             <a-entity id="look" camera position="-36 20 0" rotation="0 -90 0"></a-entity>
         </a-entity>
 
-        <a-entity id="terrain" position="0 0 0" terrain-rotation-reader flying-birds target-ring>
+        <a-entity id="terrain" position="0 0 0" terrain-rotation-reader ships target-ring game-play>
             <a-box position="0 -3.5 -475" scale="400 6 950" color="#005493"></a-box>
             <a-box position="200 48 -475" scale="10 100 950" color="grey"></a-box>
             <a-box position="-200 48 -475" scale="10 100 950" color="grey"></a-box>
@@ -40,49 +40,6 @@
         <a-entity>
             <a-sphere position="0 100 -30" radius="0.5" color="orange" dynamic-body></a-sphere>
         </a-entity>
-
-        <!--Game timer and score-->
-        <a-entity id="header" position="1 -4 0">
-
-            <!-- Title -->
-            <a-entity position="-28.5 51.5 0"
-                text="font: exo2bold; align: center; width: 40; color: black; value: VIRTUAL FLIGHT">
-            </a-entity>
-
-            <!-- Timer -->
-            <a-entity position="-23.5 49.3 0">
-                <a-entity position="-1.5 0.07 0"
-                    text="font: aileronsemibold; width: 12; color: black; value: TIME\nREMAINING">
-                </a-entity>
-                <a-entity id="timer" position="-9.8 0.3 0"
-                    text="font: exo2bold; align: center; width: 30; color: black; value: 00:00">
-                </a-entity>
-            </a-entity>
-
-            <!-- Traget Status -->
-            <a-entity position="-18 49.3 0">
-                <a-entity position="-0.6 0.13 0"
-                    text="font: aileronsemibold; width: 12; color: black; value: TRAGETS\nREMAINING"></a-entity>
-                <a-entity id="targets" position="-8 0.3 0"
-                    text="font: exo2bold; align: center; width: 30; color: black; value: 20"></a-entity>
-            </a-entity>
-
-            <!-- Score -->
-            <a-entity position="30.5 51.5 0">
-                <a-entity position=""
-                    text="font: exo2bold; align: center; width: 40; color: black; value: SCORE"></a-entity>
-                <a-entity id="score" position="0 -2 0"
-                    text="font: exo2bold; align: center; width: 40; color: black; value: 0">
-                </a-entity>
-            </a-entity>
-
-        </a-entity>
-
-        <!------------------------------------Game Over-------------------------------->
-        <a-entity id="game_over_text" position="0 30.5 0"
-            text="font: exo2bold; align: center; width: 100; color: white;value: Game Over!!!"
-            visible="false"></a-entity>
-
     </a-scene>
 </body>
 

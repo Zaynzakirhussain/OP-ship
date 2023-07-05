@@ -1,50 +1,52 @@
 //registering component in collider.js
-AFRAME.registerComponent("flying-birds", {
+AFRAME.registerComponent("ships", {
     init: function () {
         for (var i = 1; i <= 20; i++) {
             var id = `hurdle${i}`
 
             //position variables     
-            var posX = (Math.random() * 700 + (-400));
+            var posX = (Math.random() * 400 + (-200));
             var posY = (Math.random() * 0);
-            var posZ = (Math.random() * -850 + 0);
+            var posZ = (Math.random() * -1050 + 0);
 
-            var position = { x: posX, y: posY, z: posZ};
+            var position = { x: posX, y: posY, z: posZ };
 
-            this.flyingBirds(id, position)
+            this.ships(id, position)
         }
     },
-    flyingBirds: (id, position) => {
+    ships: (id, position) => {
         //get the terrain element
         var terrainEl = document.querySelector("#terrain")
 
         //creating the bird model entity
-        var birdEl = document.createElement("a-entity")
+        var shipsEl = document.createElement("a-entity")
 
         //setting multiple attributes
-        birdEl.setAttribute("gltf-model", "./assets/scene.glTF")
+        shipsEl.setAttribute("gltf-model", "./assets/scene.glTF")
 
         //animated models
-        birdEl.setAttribute("animation-mixer", {})
+        shipsEl.setAttribute("animation-mixer", {})
 
-        birdEl.setAttribute("animation", "property: position; to: 1000 0 0; easing:linear; loop: true; dur: 150000")
+        shipsEl.setAttribute("rotation", { x: 0, y: -90, z: 0 });
 
-        birdEl.setAttribute("scale", { x: 1, y: 1, z: 1 })
+        shipsEl.setAttribute("animation", "property: position; to: 0 0 1000; easing:linear; loop: true; dur: 150000")
 
-        birdEl.setAttribute("id", id)
+        shipsEl.setAttribute("scale", { x: 1, y: 1, z: 1 })
 
-        birdEl.setAttribute("position", position)
+        shipsEl.setAttribute("id", id)
 
-        birdEl.setAttribute("static-body", {
+        shipsEl.setAttribute("position", position)
+
+        shipsEl.setAttribute("static-body", {
             shape: "sphere",
-            sphereRadius: 5
-          })
+            sphereRadius: 25
+        })
 
-        birdEl.setAttribute("game-play", {
+        shipsEl.setAttribute("game-play", {
             elementId: `#${id}`
         })
 
         //append the bird entity as the child of the terrain entity
-        terrainEl.appendChild(birdEl)
+        terrainEl.appendChild(shipsEl)
     }
 })
