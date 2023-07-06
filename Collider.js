@@ -7,7 +7,7 @@ AFRAME.registerComponent("ships", {
             //position variables     
             var posX = (Math.random() * 400 + (-200));
             var posY = (Math.random() * 0);
-            var posZ = (Math.random() * -1050 + 0);
+            var posZ = (Math.random() * -2050 + 0);
 
             var position = { x: posX, y: posY, z: posZ };
 
@@ -39,7 +39,7 @@ AFRAME.registerComponent("ships", {
 
         shipsEl.setAttribute("static-body", {
             shape: "sphere",
-            sphereRadius: 25
+            sphereRadius: 50
         })
 
         shipsEl.setAttribute("game-play", {

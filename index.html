@@ -3,15 +3,16 @@
 
 <head>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-
 
     <script src="Rotation.js"></script>
     <script src="Target.js"></script>
     <script src="Collider.js"></script>
     <script src="Game.js"></script> -->
+
+    <script
+        src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
 </head>
 
 <body>
@@ -40,6 +41,37 @@
         <a-entity>
             <a-sphere position="0 100 -30" radius="0.5" color="orange" dynamic-body></a-sphere>
         </a-entity>
+
+        <!--Game timer and score-->
+        <a-entity id="header" position="1 10 0">
+
+            <!-- Title -->
+            <a-entity position="0 0 0"
+                animation="property: position; to: 0 0 -1000; easing:linear; loop: true; dur: 70000"
+                terrain-rotation-reader
+                text="font: exo2bold; align: center; width: 32; color: black; value: VIRTUAL OCEAN">
+            </a-entity>
+
+            <!-- Timer -->
+            <a-entity>
+                <a-entity position="-9.5 -0.5 0" rotation="0 0 0"
+                    animation="property: position; to: -9.5  -0.5 -1000; easing:linear; loop: true; dur: 70000"
+                    text="font: aileronsemibold; width: 12; color: black; value: TIME\nREMAINING"
+                    terrain-rotation-reader>
+                </a-entity>
+                <a-entity id="timer" position="-9.5  -0.5 0"
+                    animation="property: position; to: -9.5 -0.5 -1000; easing:linear; loop: true; dur: 70000"
+                    terrain-rotation-reader text="font: exo2bold; align: center; width: 22; color: black; value: 00:00">
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="game_over_text" position="0 -3 0"
+                animation="property: position; to: 0 -3 -1000; easing:linear; loop: true; dur: 70000"
+                terrain-rotation-reader
+                text="font: exo2bold; align: center; width: 100; color: white;value: Game Over!!!"
+                visible="false"></a-entity>
+        </a-entity>
+
     </a-scene>
 </body>
 
